@@ -1,0 +1,5 @@
+NAME                 IMAGE                  COMMAND                  SERVICE   CREATED          STATUS                    PORTS
+campuscart-api1-1    campuscart-api:1.0.0   "gunicorn --bind 0.0…"   api1      16 seconds ago   Up 10 seconds (healthy)   8000/tcp
+campuscart-api2-1    campuscart-api:1.0.0   "gunicorn --bind 0.0…"   api2      16 seconds ago   Up 10 seconds (healthy)   8000/tcp
+campuscart-db-1      postgres:16-alpine     "docker-entrypoint.s…"   db        16 seconds ago   Up 16 seconds (healthy)   5432/tcp
+campuscart-proxy-1   nginx:1.27-alpine      "/docker-entrypoint.…"   proxy     16 seconds ago   Up 9 seconds              0.0.0.0:8080->80/tcp, [::]:8080->80/tcp

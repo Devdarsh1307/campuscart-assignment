@@ -1,0 +1,11 @@
+Rolling back to campuscart-api:1.0.0
+campuscart-api1-1 campuscart-api:1.0.0 Up 45 seconds (healthy)
+campuscart-api2-1 campuscart-api:1.0.0 Up 46 seconds (healthy)
+campuscart-proxy-1 nginx:1.27-alpine Up 8 minutes
+campuscart-db-1 postgres:16-alpine Up 8 minutes (healthy)
+{"instance":"b4ced0f0c765","status":"ok","version":"1.0.0"}
+
+{"instance":"b4ced0f0c765","status":"ok","version":"1.0.0"}
+
+{"instance":"7bcbbb4019f8","status":"ok","version":"1.0.0"}
+

@@ -1,0 +1,15 @@
+# 1. Two instances behind proxy :8080 - /health x6 (status:instance-hostname)
+  200 {'instance': 'dinmCND21500VP', 'status': 'ok', 'version': '1.0.0', 'served_by': 'http://127.0.0.1:8001'}
+  200 {'instance': 'dinmCND21500VP', 'status': 'ok', 'version': '1.0.0', 'served_by': 'http://127.0.0.1:8002'}
+  200 {'instance': 'dinmCND21500VP', 'status': 'ok', 'version': '1.0.0', 'served_by': 'http://127.0.0.1:8001'}
+  200 {'instance': 'dinmCND21500VP', 'status': 'ok', 'version': '1.0.0', 'served_by': 'http://127.0.0.1:8002'}
+  200 {'instance': 'dinmCND21500VP', 'status': 'ok', 'version': '1.0.0', 'served_by': 'http://127.0.0.1:8001'}
+  200 {'instance': 'dinmCND21500VP', 'status': 'ok', 'version': '1.0.0', 'served_by': 'http://127.0.0.1:8002'}
+# 2. Stop instance 1 (port 8001) and call /health x6 again
+  200 {'instance': 'dinmCND21500VP', 'status': 'ok', 'version': '1.0.0', 'served_by': 'http://127.0.0.1:8002'}
+  200 {'instance': 'dinmCND21500VP', 'status': 'ok', 'version': '1.0.0', 'served_by': 'http://127.0.0.1:8002'}
+  200 {'instance': 'dinmCND21500VP', 'status': 'ok', 'version': '1.0.0', 'served_by': 'http://127.0.0.1:8002'}
+  200 {'instance': 'dinmCND21500VP', 'status': 'ok', 'version': '1.0.0', 'served_by': 'http://127.0.0.1:8002'}
+  200 {'instance': 'dinmCND21500VP', 'status': 'ok', 'version': '1.0.0', 'served_by': 'http://127.0.0.1:8002'}
+  200 {'instance': 'dinmCND21500VP', 'status': 'ok', 'version': '1.0.0', 'served_by': 'http://127.0.0.1:8002'}
+# Result: failover works - all 6 requests HTTP 200 from instance 2

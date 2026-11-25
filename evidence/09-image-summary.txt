@@ -1,0 +1,26 @@
+IMAGE                  ID             DISK USAGE   CONTENT SIZE   EXTRA
+campuscart-api:1.0.0   def82e104be8        257MB         61.7MB   U    
+campuscart-api:1.1.0   32c0bae5f4af        257MB         61.7MB        
+User=app Ports=map[8000/tcp:{}] Size=256670474
+IMAGE          CREATED          CREATED BY                                      SIZE      COMMENT
+def82e104be8   36 minutes ago   CMD ["gunicorn" "--bind" "0.0.0.0:8000" "--w…   0B        buildkit.dockerfile.v0
+<missing>      36 minutes ago   HEALTHCHECK {Test:[CMD-SHELL python -c "impo…   0B        buildkit.dockerfile.v0
+<missing>      36 minutes ago   EXPOSE [8000/tcp]                               0B        buildkit.dockerfile.v0
+<missing>      36 minutes ago   USER app                                        0B        buildkit.dockerfile.v0
+<missing>      36 minutes ago   COPY --chown=app:app app/app.py . # buildkit    12.3kB    buildkit.dockerfile.v0
+<missing>      36 minutes ago   WORKDIR /srv                                    4.1kB     buildkit.dockerfile.v0
+<missing>      36 minutes ago   COPY /opt/venv /opt/venv # buildkit             54.9MB    buildkit.dockerfile.v0
+<missing>      36 minutes ago   RUN |2 APP_VERSION=1.0.0 FAIL_HEALTH=0 /bin/…   41kB      buildkit.dockerfile.v0
+<missing>      36 minutes ago   ENV PATH=/opt/venv/bin:/usr/local/bin:/usr/l…   0B        buildkit.dockerfile.v0
+<missing>      36 minutes ago   ARG FAIL_HEALTH=0                               0B        buildkit.dockerfile.v0
+<missing>      36 minutes ago   ARG APP_VERSION=1.0.0                           0B        buildkit.dockerfile.v0
+<missing>      14 hours ago     CMD ["python3"]                                 0B        buildkit.dockerfile.v0
+<missing>      14 hours ago     RUN /bin/sh -c set -eux;  for src in idle3 p…   16.4kB    buildkit.dockerfile.v0
+<missing>      14 hours ago     RUN /bin/sh -c set -eux;   savedAptMark="$(a…   45MB      buildkit.dockerfile.v0
+<missing>      14 hours ago     ENV PYTHON_SHA256=b5796915dc45ff745cfb4e990a…   0B        buildkit.dockerfile.v0
+<missing>      14 hours ago     ENV PYTHON_VERSION=3.12.16                      0B        buildkit.dockerfile.v0
+<missing>      14 hours ago     ENV GPG_KEY=7169605F62C751356D054A26A821E680…   0B        buildkit.dockerfile.v0
+<missing>      14 hours ago     RUN /bin/sh -c set -eux;  apt-get update;  a…   9.67MB    buildkit.dockerfile.v0
+<missing>      14 hours ago     ENV LANG=C.UTF-8                                0B        buildkit.dockerfile.v0
+<missing>      14 hours ago     ENV PATH=/usr/local/bin:/usr/local/sbin:/usr…   0B        buildkit.dockerfile.v0
+<missing>      43 hours ago     # debian.sh --arch 'amd64' out/ 'bookworm' '…   85.3MB    debuerreotype 0.17

@@ -1,0 +1,4 @@
+api1 stopped
+200 200 200 200 200 200 
+{"instance":"444760aa8076","status":"ok","version":"1.0.0"}
+

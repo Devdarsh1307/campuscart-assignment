@@ -1,0 +1,42 @@
+name: campuscart
+x-api: &api
+  image: campuscart-api:${TAG:-1.0.0}
+  restart: unless-stopped
+  read_only: true
+  tmpfs: [/tmp]
+  environment:
+    DB_HOST: db
+    DB_PORT: "5432"
+    DB_NAME: campuscart
+    DB_USER: campuscart
+  secrets: [db_password]
+  depends_on:
+    db: { condition: service_healthy }
+
+services:
+  api1: *api
+  api2: *api
+  proxy:
+    image: nginx:1.27-alpine
+    ports: ["8080:80"]
+    volumes: ["./nginx/nginx.conf:/etc/nginx/nginx.conf:ro"]
+    depends_on: [api1, api2]
+  # Local stand-in for the managed database (RDS in the cloud design)
+  db:
+    image: postgres:16-alpine
+    environment:
+      POSTGRES_DB: campuscart
+      POSTGRES_USER: campuscart
+      POSTGRES_PASSWORD_FILE: /run/secrets/db_password
+    secrets: [db_password]
+    volumes: ["dbdata:/var/lib/postgresql/data"]
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U campuscart"]
+      interval: 5s
+      retries: 10
+
+secrets:
+  db_password:
+    file: ./secrets/db_password.txt
+volumes:
+  dbdata:

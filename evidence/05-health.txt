@@ -1,0 +1,22 @@
+# GET /health x6 via proxy
+{"instance":"87dd6465b845","status":"ok","version":"1.0.0"}
+
+{"instance":"444760aa8076","status":"ok","version":"1.0.0"}
+
+{"instance":"87dd6465b845","status":"ok","version":"1.0.0"}
+
+{"instance":"444760aa8076","status":"ok","version":"1.0.0"}
+
+{"instance":"87dd6465b845","status":"ok","version":"1.0.0"}
+
+{"instance":"444760aa8076","status":"ok","version":"1.0.0"}
+
+# POST + GET /orders
+{"status":"created"}
+
+[{"id":1,"item":"Notebook","qty":2},{"id":2,"item":"Notebook","qty":2}]
+
+# Runs as user:
+uid=999(app) gid=999(app) groups=999(app)
+# Secret NOT in image env/history:
+0
